@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yarn Nest - Handcrafted Yarn Treasures</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: url('your-background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Header Section */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-icon span {
+            display: inline-block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+        }
+
+        .navbar {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        .navbar a {
+            margin: 10px 0;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .search-cart {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            right: 20px;
+        }
+
+        .search-cart input {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+
+        /* Commitments Section */
+        .commitments-container {
+            display: flex;
+            justify-content: center;
+            padding: 50px 20px; /* Padding from all sides */
+        }
+
+        .commitments {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 50px 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Blackish transparent background */
+            border-radius: 10px;
+            width: 100%;
+            max-width: 1200px; /* Centering the commitments section */
+            margin-top: 30px; /* Space from header */
+        }
+
+        .commitment {
+            text-align: center;
+            margin: 20px;
+            flex: 1 1 calc(33.333% - 40px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .commitment img {
+            max-width: 80px;
+            margin-bottom: 15px;
+        }
+
+        .commitment h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .commitment p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Featured Products Section */
+        .featured-products {
+            padding: 50px 20px;
+            background-color: #f0f0f0;
+        }
+
+        .featured-products h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-item img {
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        /* Shop Now Button */
+        .shop-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #ff6347;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .shop-button:hover {
+            background-color: #ff4500;
+        }
+
+        /* Footer Section */
+        footer {
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+
+        /* Media Queries for Mobile */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 0;
+            }
+
+            .menu-icon {
+                margin-left: 20px;
+            }
+
+            .search-cart {
+                position: static;
+                margin-top: 10px;
+            }
+
+            .navbar {
+                top: 50px;
+                left: 10px;
+                right: 10px;
+                width: auto;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .commitments {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .commitment {
+                margin: 10px 0;
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    
+    <header>
+        
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        <div class="search-cart">
+            <input type="text" placeholder="Search...">
+            <div class="cart-icon">
+                🛒
+                <span class="cart-count">3</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar Section -->
+    <nav class="navbar" id="navbar">
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Commitments Section -->
+    <div class="commitments-container">
+        <section class="commitments">
+            <div class="commitment">
+                <img src="commitment1-logo.png" alt="High Quality Logo">
+                <h3>High Quality</h3>
+                <p>We use the finest yarns to craft each product with care and precision.</p>
+            </div>
+            <div class="commitment">
+                <img src="commitment2-logo.png" alt="Handmade with Love Logo">
+                <h3>Handmade with Love</h3>
+                <p>Every item is lovingly handcrafted by skilled artisans.</p>
+            </div>
+            <div class="commitment">
+                <img src="commitment3-logo.png" alt="Sustainable Materials Logo">
+                <h3>Sustainable Materials</h3>
+                <p>Our products are made with eco-friendly and sustainable materials.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="Products/red_handbag_1.png" alt="Product 1">
+                <h3>Red Handbag</h3>
+                <p>₹349</p>
+                <a href="#" class="shop-button">Shop Now</a>
+            </div>
+            <div class="product-item">
+                <img src="Products/blue_handbag_1.png" alt="Product 2">
+                <h3>Blue Handbag</h3>
+                <p>₹299</p>
+                <a href="#" class="shop-button">Shop Now</a>
+            </div>
+            <div class="product-item">
+                <img src="Products/grey_pouch_1.png" alt="Product 3">
+                <h3>Gray Pouch</h3>
+                <p>₹149</p>
+                <a href="#" class="shop-button">Shop Now</a>
+            </div>
+            <div class="product-item">
+                <img src="product4.jpg" alt="Product 4">
+                <h3>Yarn Wall Hanging</h3>
+                <p>$45.99</p>
+                <a href="#" class="shop-button">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Yarn Nest. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+    const navbar = document.getElementById('navbar');
+    navbar.style.display = navbar.style.display === 'flex' ? 'none' : 'flex';
+}
+    </script>
+</body>
+</html>
