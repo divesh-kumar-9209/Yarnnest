@@ -40,14 +40,15 @@ function updateCartButton(productId) {
     }
 }
 
-// Add to cart functionality
+
+// Cart functionality
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
 function addToCart(productId, productName, productPrice) {
     const quantityInput = document.getElementById(`quantity-${productId}`);
     const quantity = parseInt(quantityInput.value);
 
     if (quantity > 0) {
-        // Store the cart in localStorage
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
         const existingProduct = cart.find(product => product.id === productId);
 
         if (existingProduct) {
@@ -57,23 +58,48 @@ function addToCart(productId, productName, productPrice) {
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
-
-        // Update the cart count
         updateCartCount();
         alert(`${quantity} ${productName}(s) added to the cart.`);
-
-        // Hide the quantity selector after adding to cart
-        const quantitySelector = document.getElementById(`quantity-selector-${productId}`);
-        quantitySelector.style.display = 'none';
+        document.getElementById(`quantity-selector-${productId}`).style.display = 'none';
     }
 }
 
-// Update cart count based on the cart contents
 function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartCount = cart.reduce((count, product) => count + product.quantity, 0);
     document.querySelector('.cart-count').textContent = cartCount;
 }
 
-// Initialize the cart count when the page loads
-document.addEventListener('DOMContentLoaded', updateCartCount);
+function buyNow(productId, productName, productPrice) {
+    cart = [{ id: productId, name: productName, price: productPrice, quantity: 1 }];
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.href = 'checkout.html';
+}
+
+function redirectToCheckout() {
+    window.location.href = 'checkout.html';
+}
+
+// Checkout functionality
+function proceedToPayment() {
+    alert('Proceeding to payment...');
+}
+
+// Load cart items on checkout page
+document.addEventListener('DOMContentLoaded', function () {
+    if (window.location.pathname.includes('checkout.html')) {
+        const cartItemsContainer = document.querySelector('.cart-items');
+        const totalPriceElement = document.getElementById('total-price');
+        let totalPrice = 0;
+
+        cart.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
+            cartItemsContainer.appendChild(cartItem);
+            totalPrice += item.price * item.quantity;
+        });
+
+        totalPriceElement.textContent = totalPrice.toFixed(2);
+    }
+
+    updateCartCount();
+});

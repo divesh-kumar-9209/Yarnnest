@@ -97,21 +97,58 @@
 
         .cart-icon {
             position: relative;
-            font-size: 24px;
             cursor: pointer;
         }
-
+        
+        .cart-icon i {
+            font-size: 24px;
+        }
+        
         .cart-count {
             position: absolute;
             top: -10px;
             right: -10px;
             background-color: red;
             color: white;
-            border-radius: 50%;
             padding: 2px 6px;
+            border-radius: 50%;
             font-size: 12px;
         }
-
+        
+        .buy-now-button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .buy-now-button:hover {
+            background-color: #e65c00;
+        }
+        
+        .checkout-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .cart-items {
+            margin-bottom: 20px;
+        }
+        
+        .checkout-summary {
+            text-align: right;
+        }
+        
+        .checkout-button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        
          /* Commitments Section */
 .commitments-container {
     display: flex;

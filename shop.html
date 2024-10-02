@@ -23,7 +23,7 @@
         </nav>
         <div class="search-cart">
             <input type="text" placeholder="Search...">
-            <div class="cart-icon">
+            <div class="cart-icon" onclick="redirectToCheckout()">
                 <i class="fa fa-shopping-cart"></i>
                 <span class="cart-count">0</span>
             </div>
@@ -36,266 +36,19 @@
         <div class="product-grid">
             <!-- Example Products -->
             <div class="product-item">
-                <img src="blue_handbag_1.png" alt="Product 1">
+                <img src="product1.jpg" alt="Product 1">
                 <h3>Product 1</h3>
-                <p>19.99</p>
+                <p>$19.99</p>
                 <button class="shop-button" onclick="openQuantitySelector(1)">Add to Cart</button>
                 <div class="quantity-selector" id="quantity-selector-1">
                     <label for="quantity-1">Quantity:</label>
                     <input type="number" id="quantity-1" min="0" max="99" value="1" onchange="updateCartButton(1)">
                     <button class="shop-button" onclick="addToCart(1, 'Product 1', 19.99)">Confirm</button>
                 </div>
+                <button class="buy-now-button" onclick="buyNow(1, 'Product 1', 19.99)">Buy Now</button>
             </div>
 
-            <div class="product-item">
-                <img src="granny_pouch_2.png" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>4.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(2)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-2">
-                    <label for="quantity-2">Quantity:</label>
-                    <input type="number" id="quantity-2" min="0" max="99" value="1" onchange="updateCartButton(2)">
-                    <button class="shop-button" onclick="addToCart(2, 'Product 2', 24.99)">Confirm</button>
-                </div>
-            </div>
-
-            <!-- Add 18 more product items -->
-            <div class="product-item">
-                <img src="red_handbag_1.png" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>29.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(3)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-3">
-                    <label for="quantity-3">Quantity:</label>
-                    <input type="number" id="quantity-3" min="0" max="99" value="1" onchange="updateCartButton(3)">
-                    <button class="shop-button" onclick="addToCart(3, 'Product 3', 29.99)">Confirm</button>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <img src="blue_handbag_1.png" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>19.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(1)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-1">
-                    <label for="quantity-1">Quantity:</label>
-                    <input type="number" id="quantity-1" min="0" max="99" value="1" onchange="updateCartButton(1)">
-                    <button class="shop-button" onclick="addToCart(1, 'Product 1', 19.99)">Confirm</button>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <img src="granny_pouch_2.png" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>4.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(2)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-2">
-                    <label for="quantity-2">Quantity:</label>
-                    <input type="number" id="quantity-2" min="0" max="99" value="1" onchange="updateCartButton(2)">
-                    <button class="shop-button" onclick="addToCart(2, 'Product 2', 24.99)">Confirm</button>
-                </div>
-            </div>
-
-            <!-- Add 18 more product items -->
-            <div class="product-item">
-                <img src="red_handbag_1.png" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>29.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(3)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-3">
-                    <label for="quantity-3">Quantity:</label>
-                    <input type="number" id="quantity-3" min="0" max="99" value="1" onchange="updateCartButton(3)">
-                    <button class="shop-button" onclick="addToCart(3, 'Product 3', 29.99)">Confirm</button>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <img src="blue_handbag_1.png" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>19.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(1)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-1">
-                    <label for="quantity-1">Quantity:</label>
-                    <input type="number" id="quantity-1" min="0" max="99" value="1" onchange="updateCartButton(1)">
-                    <button class="shop-button" onclick="addToCart(1, 'Product 1', 19.99)">Confirm</button>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <img src="granny_pouch_2.png" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>4.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(2)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-2">
-                    <label for="quantity-2">Quantity:</label>
-                    <input type="number" id="quantity-2" min="0" max="99" value="1" onchange="updateCartButton(2)">
-                    <button class="shop-button" onclick="addToCart(2, 'Product 2', 24.99)">Confirm</button>
-                </div>
-            </div>
-
-            <!-- Add 18 more product items -->
-            <div class="product-item">
-                <img src="red_handbag_1.png" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>29.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(3)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-3">
-                    <label for="quantity-3">Quantity:</label>
-                    <input type="number" id="quantity-3" min="0" max="99" value="1" onchange="updateCartButton(3)">
-                    <button class="shop-button" onclick="addToCart(3, 'Product 3', 29.99)">Confirm</button>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <img src="blue_handbag_1.png" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>19.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(1)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-1">
-                    <label for="quantity-1">Quantity:</label>
-                    <input type="number" id="quantity-1" min="0" max="99" value="1" onchange="updateCartButton(1)">
-                    <button class="shop-button" onclick="addToCart(1, 'Product 1', 19.99)">Confirm</button>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <img src="granny_pouch_2.png" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>4.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(2)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-2">
-                    <label for="quantity-2">Quantity:</label>
-                    <input type="number" id="quantity-2" min="0" max="99" value="1" onchange="updateCartButton(2)">
-                    <button class="shop-button" onclick="addToCart(2, 'Product 2', 24.99)">Confirm</button>
-                </div>
-            </div>
-
-            <!-- Add 18 more product items -->
-            <div class="product-item">
-                <img src="red_handbag_1.png" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>29.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(3)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-3">
-                    <label for="quantity-3">Quantity:</label>
-                    <input type="number" id="quantity-3" min="0" max="99" value="1" onchange="updateCartButton(3)">
-                    <button class="shop-button" onclick="addToCart(3, 'Product 3', 29.99)">Confirm</button>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <img src="blue_handbag_1.png" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>19.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(1)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-1">
-                    <label for="quantity-1">Quantity:</label>
-                    <input type="number" id="quantity-1" min="0" max="99" value="1" onchange="updateCartButton(1)">
-                    <button class="shop-button" onclick="addToCart(1, 'Product 1', 19.99)">Confirm</button>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <img src="granny_pouch_2.png" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>4.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(2)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-2">
-                    <label for="quantity-2">Quantity:</label>
-                    <input type="number" id="quantity-2" min="0" max="99" value="1" onchange="updateCartButton(2)">
-                    <button class="shop-button" onclick="addToCart(2, 'Product 2', 24.99)">Confirm</button>
-                </div>
-            </div>
-
-            <!-- Add 18 more product items -->
-            <div class="product-item">
-                <img src="red_handbag_1.png" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>29.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(3)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-3">
-                    <label for="quantity-3">Quantity:</label>
-                    <input type="number" id="quantity-3" min="0" max="99" value="1" onchange="updateCartButton(3)">
-                    <button class="shop-button" onclick="addToCart(3, 'Product 3', 29.99)">Confirm</button>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <img src="blue_handbag_1.png" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>19.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(1)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-1">
-                    <label for="quantity-1">Quantity:</label>
-                    <input type="number" id="quantity-1" min="0" max="99" value="1" onchange="updateCartButton(1)">
-                    <button class="shop-button" onclick="addToCart(1, 'Product 1', 19.99)">Confirm</button>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <img src="granny_pouch_2.png" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>4.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(2)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-2">
-                    <label for="quantity-2">Quantity:</label>
-                    <input type="number" id="quantity-2" min="0" max="99" value="1" onchange="updateCartButton(2)">
-                    <button class="shop-button" onclick="addToCart(2, 'Product 2', 24.99)">Confirm</button>
-                </div>
-            </div>
-
-            <!-- Add 18 more product items -->
-            <div class="product-item">
-                <img src="red_handbag_1.png" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>29.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(3)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-3">
-                    <label for="quantity-3">Quantity:</label>
-                    <input type="number" id="quantity-3" min="0" max="99" value="1" onchange="updateCartButton(3)">
-                    <button class="shop-button" onclick="addToCart(3, 'Product 3', 29.99)">Confirm</button>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <img src="blue_handbag_1.png" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>19.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(1)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-1">
-                    <label for="quantity-1">Quantity:</label>
-                    <input type="number" id="quantity-1" min="0" max="99" value="1" onchange="updateCartButton(1)">
-                    <button class="shop-button" onclick="addToCart(1, 'Product 1', 19.99)">Confirm</button>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <img src="granny_pouch_2.png" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>4.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(2)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-2">
-                    <label for="quantity-2">Quantity:</label>
-                    <input type="number" id="quantity-2" min="0" max="99" value="1" onchange="updateCartButton(2)">
-                    <button class="shop-button" onclick="addToCart(2, 'Product 2', 24.99)">Confirm</button>
-                </div>
-            </div>
-
-            <!-- Add 18 more product items -->
-            <div class="product-item">
-                <img src="red_handbag_1.png" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>29.99</p>
-                <button class="shop-button" onclick="openQuantitySelector(3)">Add to Cart</button>
-                <div class="quantity-selector" id="quantity-selector-3">
-                    <label for="quantity-3">Quantity:</label>
-                    <input type="number" id="quantity-3" min="0" max="99" value="1" onchange="updateCartButton(3)">
-                    <button class="shop-button" onclick="addToCart(3, 'Product 3', 29.99)">Confirm</button>
-                </div>
-            </div>
-
-
-            <!-- Repeat the structure for products 4 to 20 with different images, names, and prices -->
+            <!-- Add more products similarly -->
         </div>
     </section>
 
